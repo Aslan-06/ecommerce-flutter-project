@@ -1,3 +1,4 @@
+import 'package:ecommerce/home.dart';
 import 'package:ecommerce/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,16 +18,8 @@ class _SignInState extends State<SignInPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: SvgPicture.asset(
-                      'assets/svg/arrow-left.svg',
-                      semanticsLabel: 'Retour en arrière',
-                      width: 20,
-                      fit: BoxFit.scaleDown,
-                    )),
                 SizedBox(height: 30),
                 Align(
                   alignment: Alignment.centerLeft,
@@ -109,19 +102,27 @@ class _SignInState extends State<SignInPage> {
                 SizedBox(height: 40),
                 Container(
                     width: double.infinity,
-                    child: FilledButton(
-                        onPressed: null,
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll<Color>(Colors.red)),
-                        child: Container(
-                          child: Text(
-                            "Sign up".toUpperCase(),
-                            style: TextStyle(
-                                color: Colors.white, letterSpacing: 1),
-                          ),
-                          padding: EdgeInsets.only(top: 15, bottom: 15),
-                        ))),
+                    child: GestureDetector(
+                      onTapUp: (details) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => HomePage()));
+                      },
+                      child: FilledButton(
+                          onPressed: null,
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll<Color>(Colors.red)),
+                          child: Container(
+                            child: Text(
+                              "Sign up".toUpperCase(),
+                              style: TextStyle(
+                                  color: Colors.white, letterSpacing: 1),
+                            ),
+                            padding: EdgeInsets.only(top: 15, bottom: 15),
+                          )),
+                    )),
               ],
             ),
           ),

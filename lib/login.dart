@@ -1,3 +1,4 @@
+import 'package:ecommerce/home.dart';
 import 'package:ecommerce/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -103,19 +104,27 @@ class _LoginState extends State<LoginPage> {
                 SizedBox(height: 40),
                 Container(
                     width: double.infinity,
-                    child: FilledButton(
-                        onPressed: null,
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll<Color>(Colors.red)),
-                        child: Container(
-                          child: Text(
-                            "Login".toUpperCase(),
-                            style: TextStyle(
-                                color: Colors.white, letterSpacing: 1),
-                          ),
-                          padding: EdgeInsets.only(top: 15, bottom: 15),
-                        ))),
+                    child: GestureDetector(
+                      onTapUp: (details) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => HomePage()));
+                      },
+                      child: FilledButton(
+                          onPressed: null,
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll<Color>(Colors.red)),
+                          child: Container(
+                            child: Text(
+                              "Login".toUpperCase(),
+                              style: TextStyle(
+                                  color: Colors.white, letterSpacing: 1),
+                            ),
+                            padding: EdgeInsets.only(top: 15, bottom: 15),
+                          )),
+                    )),
               ],
             ),
           ),
